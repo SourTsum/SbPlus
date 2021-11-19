@@ -1,5 +1,5 @@
-## Skyblock Plus
+# Skyblock Plus
 Skyblock Plus is a mod that is easy to use and comes with many useful features.
-# Features
+## Features
 Dwarven Mines:
  - GUI showing various useful mine features
