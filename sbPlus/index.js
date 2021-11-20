@@ -112,6 +112,12 @@ register("chat", function(event){
   features_settings['active_mining_event'] = "&cGoblin Raid";
   MinesEventDisplay.setLine(0,"&r&eActive Event&7: " + features_settings['active_mining_event']);
 }).setCriteria("&eThe &cGoblin Raid &eevent starts in").setParameter("contains");
+//2x powder
+register("chat", function(event){
+  features_settings['active_mining_event'] = "&b2x Powder";
+  MinesEventDisplay.setLine(0,"&r&eActive Event&7: " + features_settings['active_mining_event']);
+}).setCriteria("&eThe &b2x Powder &eevent starts in").setParameter("contains");
+
 
 //Commisions
 //Monolith Stuff (&r&5You found the mysterious Dark Monolith.&r)
