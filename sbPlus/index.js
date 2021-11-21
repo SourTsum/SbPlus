@@ -1,10 +1,22 @@
-//Features Lists
-var features = {"mining_speed_sound":true,"current_mining_event":true,"raffle_closing":true}
+ //Features Lists
+var features = {"mining_speed_sound":true,"current_mining_event":true,"raffle_closing":true,"fishing_tracker":true}
 var features_settings = {"msb_time":"&cnot available","active_mining_event":"none"}
+var fishing_feature_setting_page_1 = {
+  "Creatures Caught": 0, 
+  "Good Catches": 0, 
+  "Great Catches": 0, 
+  "Squids": 0,
+  "Sea Walkers": 0, 
+  "Night Squids": 0, 
+  "Sea Guardians": 0, 
+  "Sea Witches":0,
+  "Sea Archers": 0,
+  "Monster of the Deep":0}
 //Display Var
 var SpeedBoostDisplay = new Display();
 var MinesEventDisplay = new Display();
 var RaffleCountDown = new Display();
+var fishingTracker_page1 = new Display();
 //Server Registration
 var serverVal = 0
 const WarpLocationList = ["The Lift", "The Forge", "Dwarven Mines", "Dwarven Village"];
@@ -124,6 +136,25 @@ register("chat", function(event){
 
 //Fallen Star Location
 //&r&5&l✯ &r&eA &r&5Fallen Star &r&ehas crashed at &r&bRoyal Mines&r&e! Nearby ore and Powder drops are amplified!&r
+
+
+//Fishing Tracker
+if (features['fishing_tracker'] == true){
+  fishingTracker_page1.setBackground(DisplayHandler.Background.FULL);
+  fishingTracker_page1.setLine(0,"&bCreatures Caught:        " + fishing_feature_setting_page_1['Creatures Caught']);
+  fishingTracker_page1.setLine(1,"&6Good Catches:             " + fishing_feature_setting_page_1['Good Catches']);
+  fishingTracker_page1.setLine(2,"&5Great Catches:            " + fishing_feature_setting_page_1['Great Catches']);
+  fishingTracker_page1.setLine(3,"&7Squids:                      " + fishing_feature_setting_page_1['Squids']);
+  fishingTracker_page1.setLine(4,"&aSea Walkers:               " + fishing_feature_setting_page_1['Sea Walkers']);
+  fishingTracker_page1.setLine(5,"&0Night Squids:               " + fishing_feature_setting_page_1['Night Squids']);
+  fishingTracker_page1.setLine(6,"&3Sea Guardians:            " + fishing_feature_setting_page_1['Sea Guardians']);
+  fishingTracker_page1.setRenderLoc(10,10);
+}
+
+register("chat", function(event){
+  fishing_feature_setting['Squids'] += 1;
+  fishingTracker_page1.setLine(3,"&7Squids:                      " + fishing_feature_setting['Squids']);
+}).setCriteria("&r&aA Squid appeared.&r").setParameter("contains");
 
 //toggles
 register("command",function(event){
