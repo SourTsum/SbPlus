@@ -1,7 +1,7 @@
  //Features Lists
 var features = {"mining_speed_sound":true,"current_mining_event":true,"raffle_closing":true,"fishing_tracker":true}
 var features_settings = {"msb_time":"&cnot available","active_mining_event":"none"}
-var fishing_feature_setting_page_1 = {
+var fishing_feature_setting = {
   "Creatures Caught": 0, 
   "Good Catches": 0, 
   "Great Catches": 0, 
@@ -11,12 +11,21 @@ var fishing_feature_setting_page_1 = {
   "Sea Guardians": 0, 
   "Sea Witches":0,
   "Sea Archers": 0,
-  "Monster of the Deep":0}
+  "Monster of the Deep":0,
+  "Catfish":0,
+  "Carrot King":0,
+  "Sea Leech":0,
+  "Guardian Defender":0,
+  "Deep Sea Protector":0,
+  "Hydra":0,
+  "Sea Emperor":0,
+  "Creature Since Emperor":0
+}
 //Display Var
 var SpeedBoostDisplay = new Display();
 var MinesEventDisplay = new Display();
 var RaffleCountDown = new Display();
-var fishingTracker_page1 = new Display();
+var fishingTracker = new Display();
 //Server Registration
 var serverVal = 0
 const WarpLocationList = ["The Lift", "The Forge", "Dwarven Mines", "Dwarven Village"];
@@ -140,21 +149,31 @@ register("chat", function(event){
 
 //Fishing Tracker
 if (features['fishing_tracker'] == true){
-  fishingTracker_page1.setBackground(DisplayHandler.Background.FULL);
-  fishingTracker_page1.setLine(0,"&bCreatures Caught:        " + fishing_feature_setting_page_1['Creatures Caught']);
-  fishingTracker_page1.setLine(1,"&6Good Catches:             " + fishing_feature_setting_page_1['Good Catches']);
-  fishingTracker_page1.setLine(2,"&5Great Catches:            " + fishing_feature_setting_page_1['Great Catches']);
-  fishingTracker_page1.setLine(3,"&7Squids:                      " + fishing_feature_setting_page_1['Squids']);
-  fishingTracker_page1.setLine(4,"&aSea Walkers:               " + fishing_feature_setting_page_1['Sea Walkers']);
-  fishingTracker_page1.setLine(5,"&0Night Squids:               " + fishing_feature_setting_page_1['Night Squids']);
-  fishingTracker_page1.setLine(6,"&3Sea Guardians:            " + fishing_feature_setting_page_1['Sea Guardians']);
-  fishingTracker_page1.setRenderLoc(10,10);
+  fishingTracker.setBackground(DisplayHandler.Background.FULL);
+  fishingTracker.setLine(0,"&bCreatures Caught:        " + fishing_feature_setting['Creatures Caught']);
+  fishingTracker.setLine(1,"&6Good Catches:              " + fishing_feature_setting['Good Catches']);
+  fishingTracker.setLine(2,"&5Great Catches:             " + fishing_feature_setting['Great Catches']);
+  fishingTracker.setLine(3,"&7Squids:                       " + fishing_feature_setting['Squids']);
+  fishingTracker.setLine(4,"&aSea Walkers:                " + fishing_feature_setting['Sea Walkers']);
+  fishingTracker.setLine(5,"&0Night Squids:                " + fishing_feature_setting['Night Squids']);
+  fishingTracker.setLine(6,"&3Sea Guardians:             " + fishing_feature_setting['Sea Guardians']);
+  fishingTracker.setLine(7,"&9Sea Witches:                " + fishing_feature_setting['Sea Witches']);
+  fishingTracker.setLine(8,"&aSea Archers:               " + fishing_feature_setting['Sea Archers']);
+  fishingTracker.setLine(9,"&aMonster of the Deep:     " + fishing_feature_setting['Monster of the Deep']);
+  fishingTracker.setLine(10,"&eCatfishes:                   " + fishing_feature_setting['Catfish']);
+  fishingTracker.setLine(11,"&7Sea Leeches:               " + fishing_feature_setting['Sea Leech']);
+  fishingTracker.setLine(12,"&5Gaurdian Defenders:      " + fishing_feature_setting['Sea Leech']);
+  fishingTracker.setLine(13,"&5Deep Sea Protectors:    " + fishing_feature_setting['Deep Sea Protector']);
+  fishingTracker.setLine(14,"&6Hydras:                       " + fishing_feature_setting['Hydra']);
+  fishingTracker.setLine(15,"&6Sea Emperors:              " + fishing_feature_setting['Sea Emperor']);
+  fishingTracker.setLine(16,"&bCreature Since Emperor: " + fishing_feature_setting['Creature Since Emperor']);
+  fishingTracker.setRenderLoc(10,10);
 }
 
 register("chat", function(event){
-  fishing_feature_setting['Squids'] += 1;
-  fishingTracker_page1.setLine(3,"&7Squids:                      " + fishing_feature_setting['Squids']);
-}).setCriteria("&r&aA Squid appeared.&r").setParameter("contains");
+  fishing_feature_setting_page_1['Squids'] += 1;
+  fishingTracker.setLine(3,"&7Squids:                      " + fishing_feature_setting['Squids']);
+}).setCriteria("&r&aA Squid appeared.").setParameter("contains");
 
 //toggles
 register("command",function(event){
