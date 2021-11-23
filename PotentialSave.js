@@ -162,11 +162,12 @@ if (features['fishing_tracker'] == true){
   fishingTracker.setLine(9,"&aMonster of the Deep:     " + fishing_feature_setting['Monster of the Deep']);
   fishingTracker.setLine(10,"&eCatfishes:                   " + fishing_feature_setting['Catfish']);
   fishingTracker.setLine(11,"&7Sea Leeches:               " + fishing_feature_setting['Sea Leech']);
-  fishingTracker.setLine(12,"&5Gaurdian Defenders:      " + fishing_feature_setting['Sea Leech']);
-  fishingTracker.setLine(13,"&5Deep Sea Protectors:    " + fishing_feature_setting['Deep Sea Protector']);
-  fishingTracker.setLine(14,"&6Hydras:                       " + fishing_feature_setting['Hydra']);
-  fishingTracker.setLine(15,"&6Sea Emperors:              " + fishing_feature_setting['Sea Emperor']);
-  fishingTracker.setLine(16,"&bCreature Since Emperor: " + fishing_feature_setting['Creature Since Emperor']);
+  fishingTracker.setLine(13,"Carrot King:          " + fishing_feature_setting['Carrot King']);
+  fishingTracker.setLine(13,"&5Gaurdian Defenders:      " + fishing_feature_setting['Guardian Defender']);
+  fishingTracker.setLine(14,"&5Deep Sea Protectors:    " + fishing_feature_setting['Deep Sea Protector']);
+  fishingTracker.setLine(15,"&6Hydras:                       " + fishing_feature_setting['Hydra']);
+  fishingTracker.setLine(16,"&6Sea Emperors:              " + fishing_feature_setting['Sea Emperor']);
+  fishingTracker.setLine(17,"&bCreature Since Emperor: " + fishing_feature_setting['Creature Since Emperor']);
   fishingTracker.setRenderLoc(10,10);
 }
 
@@ -205,7 +206,40 @@ register("chat", function(event){
   fishingTracker.setLine(9,"&aMonster of the Deep:     " + fishing_feature_setting['Monster of the Deep']);
 }).setCriteria("[INSERT FISH UP MSG HERE]").setParameter("contains");
 
+register("chat", function(event){
+  fishing_feature_setting['Catfish'] += 1;
+  fishingTracker.setLine(10,"&eCatfishes:                   " + fishing_feature_setting['Catfish']);
+}).setCriteria("[INSERT FISH UP MSG HERE]").setParameter("contains");
 
+register("chat", function(event){
+  fishing_feature_setting['Sea Leech'] += 1;
+  fishingTracker.setLine(11,"&7Sea Leeches:               " + fishing_feature_setting['Sea Leech']);
+}).setCriteria("[INSERT FISH UP MSG HERE]").setParameter("contains");
+
+register("chat", function(event){
+  fishing_feature_setting['Carrot King'] += 1;
+  fishingTracker.setLine(13,"Carrot King:          " + fishing_feature_setting['Carrot King']);
+}).setCriteria("[INSERT FISH UP MSG HERE]").setParameter("contains");
+
+register("chat", function(event){
+  fishing_feature_setting['Guardian Defender'] += 1;
+  fishingTracker.setLine(13,"&5Gaurdian Defenders:      " + fishing_feature_setting['Guardian Defender']);
+}).setCriteria("[INSERT FISH UP MSG HERE]").setParameter("contains");
+
+register("chat", function(event){
+  fishing_feature_setting['Deep Sea Protector'] += 1;
+  fishingTracker.setLine(14,"&5Deep Sea Protectors:    " + fishing_feature_setting['Deep Sea Protector']);
+}).setCriteria("[INSERT FISH UP MSG HERE]").setParameter("contains");
+
+register("chat", function(event){
+  fishing_feature_setting['Hydra'] += 1;
+  fishingTracker.setLine(15,"&6Hydras:                       " + fishing_feature_setting['Hydra']);
+}).setCriteria("[INSERT FISH UP MSG HERE]").setParameter("contains");
+
+register("chat", function(event){
+  fishing_feature_setting['Sea Emperor'] += 1;
+  fishingTracker.setLine(16,"&6Sea Emperors:              " + fishing_feature_setting['Sea Emperor']);
+}).setCriteria("[INSERT FISH UP MSG HERE]").setParameter("contains");
 
 //toggles
 register("command",function(event){
