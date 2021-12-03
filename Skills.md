@@ -1,3 +1,3 @@
 #Skills
 ##Fishing:
- * /nf_ui --> Toggles Normal fishing ui on and off.
+ * /nfui --> Toggles Normal fishing ui on and off.
